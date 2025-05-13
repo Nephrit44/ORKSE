@@ -12,9 +12,10 @@
   --backgound-footer: #0077a2; /*Фон футера*/
   --backgound-btn-footer: #e8a571; /*Фон кнопок*/
   --border-radius: 5px; /*Скругление в углах*/
-  --border-thickness: 0.4vh; /*Толщина линий*/
+  --border-thickness: 4px; /*Толщина линий*/
   --font-color: #513d2a; /*Цвет шрифта контента*/
   --letterSpacing: 1.4px; /*Отступ между буквами*/
+  --colorTextShadow: #515151; /*Для тени шрифта*/
 }
 
 @font-face {
@@ -45,7 +46,6 @@ li {
 
 .container {
   max-width: 1200px;
-  min-width: 500px;
   margin: 0 auto;
 }
 
@@ -59,9 +59,14 @@ li {
 .style-container {
   background-color: var(--background-container);
   border-radius: var(--border-radius);
-  padding: 1vw;
+  padding: 20px;
   flex: 1;
   border: var(--border-thickness) solid var(--colorClearBlack);
+  width: 100%;
+}
+
+.start {
+  height: 100%;
 }
 
 .header {
@@ -94,12 +99,12 @@ li {
   font-family: "robotolight";
   width: 100%;
   text-align: end;
-  padding: 8px;
+  padding: 4px;
   color: var(--colorClearWhite);
-  text-shadow: 2px 2px 2px var(--colorClearBlack);
+  text-shadow: 2px 2px 2px var(--colorTextShadow);
   font-weight: bold;
   border-radius: var(--border-radius);
-  font-size: 1.8vh;
+  font-size: 18px;
   border: var(--border-thickness) solid var(--colorClearWhite);
   letter-spacing: var(--letterSpacing);
 }
@@ -133,21 +138,22 @@ li {
 }
 
 .title__list {
-  padding: 1.9vw;
+  padding: 20px;
   list-style: none;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   height: 100%;
   align-items: center;
   text-align: center;
 }
 
 .small-size-font {
-  font-size: 3vh;
+  font-size: 32px;
 }
 
 .large-size-font {
-  font-size: 6vh;
+  font-size: 80px;
 }
 
 .title__item {
@@ -157,11 +163,11 @@ li {
 
 .section__title {
   font-family: "robotolight";
-  font-size: 4vh;
+  font-size: 42px;
   text-align: center;
   color: var(--font-color);
   letter-spacing: var(--letterSpacing);
-  padding-bottom: 1vh;
+  padding-bottom: 20px;
 }
 
 .section__group {
@@ -180,13 +186,14 @@ li {
 .section__list {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   gap: 20px;
 }
 
 .section__item {
   position: relative;
   font-family: "robotolight";
-  font-size: 2.5vh;
+  font-size: 32px;
   padding-left: 35px;
 }
 
@@ -209,9 +216,13 @@ li {
   border: var(--border-thickness) solid var(--colorClearBlack);
   border-radius: var(--border-radius);
 }
-
-.section__fontsize {
-  font-size: 2vh;
+.section-video {
+  height: 100%;
+  width: 100%;
+}
+.video-options {
+  width: 100%;
+  height: 100%;
 }
 
 .footer {
@@ -228,10 +239,24 @@ li {
 .footer-btn {
   padding: 5px 20px;
   font-family: "sangyo";
-  font-size: 1.9vh;
+  font-size: 18px;
   border: var(--border-thickness) solid var(--colorClearBlack);
   border-radius: var(--border-radius);
   background-color: var(--backgound-btn-footer);
+  position: relative;
+}
+
+.video-logo::before {
+  content: "";
+  position: absolute;
+  background-image: url(../img/video.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  top: -14px;
+  right: -8px;
 }
 
 .footer-btn:hover {
@@ -242,21 +267,57 @@ li {
   display: none;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 500px) {
+  .style-container {
+    padding: 5px;
+  }
+
+  .large-size-font {
+    font-size: 40px;
+  }
+
+  .small-size-font {
+    font-size: 22px;
+  }
+
   .header__orks {
     display: none;
   }
 
   .section {
-    padding: 10px;
+    margin: 10px;
+    height: calc(100vh - 100px);
   }
 
   .header__img {
     display: none;
   }
 
+  .section__title {
+    font-size: 22px;
+  }
+
   .title__list {
-    height: 100vh;
+    padding: 5px;
     justify-content: space-around;
+  }
+  .title__item {
+    padding: 5px;
+  }
+
+  .law__img {
+    display: none;
+  }
+
+  .section__item {
+    font-size: 22px;
+  }
+  .section__group {
+    flex-direction: column;
+  }
+  .footer-btn {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 2px solid var(--colorClearBlack);
   }
 }
